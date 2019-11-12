@@ -1,0 +1,31 @@
+.header {
+    background-image: url(/images/paper-stacking-working-document.jpeg);
+    height: 10rem;
+    position: cover;
+
+    &__content {
+        display: flex;
+        margin-top: 4rem;
+
+        &-left {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        &-right {
+            display: flex;
+            justify-content: flex-start;
+        }
+    }
+}
+
+.logo-image {
+    margin-top: 4rem;
+    margin-left: 4rem;
+}
+
+.email-link {
+    margin-top: 7.5rem;
+    margin-left: 15rem;
+    color: white;
+}

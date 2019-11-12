@@ -1,4 +1,4 @@
-var data = {
+var dataSenate = {
     "status":"OK",
     "copyright":" Copyright (c) 2019 Pro Publica Inc. All Rights Reserved.",
     "results":[
@@ -15,7 +15,7 @@ var data = {
                   "title": "Senator, 2nd Class",
                   "short_title": "Sen.",
                   "api_uri":"https://api.propublica.org/congress/v1/members/A000360.json",
-                  "first_name": "Lamar",
+                   "first_name": "Lamar",
                   "middle_name": null,
                   "last_name": "Alexander",
                   "suffix": null,
