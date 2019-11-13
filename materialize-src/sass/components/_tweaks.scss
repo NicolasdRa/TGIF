@@ -29,3 +29,13 @@
     margin-left: 15rem;
     color: white;
 }
+
+.title {
+    &__main {
+        font-size: 3rem;
+    }
+
+    &__sub {
+        font-size: 2.5rem;
+    }
+}

@@ -6,7 +6,6 @@ var dataHouse = {
           "congress": "113",
           "chamber": "House",
           
-          
           "num_results": 450,
           "offset": 0,
           "members": [

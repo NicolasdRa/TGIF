@@ -22,8 +22,8 @@
     <header class="container header">
         <div class="row header__content">
             <div class="col s6 header__content-left">
-                <a href="#!" class="brand-logo right"><img src="images/TGIF logo.png" class="logo-image" alt="TGIF logo"
-                        width="120px" height="40px"></a>
+                <a href="#!" class="brand-logo right"><img src="images/TGIF-logo.png" class="logo-image" alt="TGIF logo"
+                        width="120" height="40"></a>
             </div>
             <div class="col s6 header__content-right">
                 <a href="mailto:webmaster@example.com" class="email-link">mailto:webmaster@example.com</a>
@@ -33,33 +33,47 @@
 
     <!-- Dropdown Structure -->
     <div class="container">
+
         <ul id="dropdown1" class="dropdown-content">
-            <li class="active"><a href="senate-starter-page.html">Senate</a></li>
+            <li><a href="senate.html">Senate</a></li>
             <li class="divider"></li>
-            <li><a href="house-starter-page.html">House</a></li>
+            <li><a href="house.html">House</a></li>
+        </ul>
+
+        <ul id="dropdown2" class="dropdown-content">
+            <li><a href="#">Senate</a></li>
+            <li class="divider"></li>
+            <li><a href="attendance_house.html">House</a></li>
+        </ul>
+
+        <ul id="dropdown3" class="dropdown-content">
+            <li><a href="#">Senate</a></li>
+            <li class="divider"></li>
+            <li><a href="#">House</a></li>
         </ul>
 
         <nav>
             <div class="nav-wrapper">
                 <ul class="left hide-on-med-and-down">
-                    <li><a href="home-starter-page.html">Home</a></li>
-
+                    <li><a href="home.html">Home</a></li>
                     <!-- Dropdown Trigger -->
-                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Congress 113<i
+                    <li class="active"><a class="dropdown-trigger" href="#!" data-target="dropdown1">Congress 113<i
+                                class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Attendance<i
+                                class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown3">Party Loyalty<i
                                 class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
             </div>
         </nav>
-
-    </div>
-    <!--Table container-->
-    <div class="container">
+        <!--Table container-->
         <div class="row">
             <div class="col-4">
             </div>
             <div class="col-8">
-                <h2>Senators</h2>
-                <p>First convened in 1789, the composition and powers of the Senate are established in Article One of
+                <h2 class="title__sub">Senators</h2>
+                <p>First convened in 1789, the composition and powers of the Senate are established in Article One
+                    of
                     the U.S.
                     Constitution. Each state is represented by two senators, regardless of population, who serve
                     staggered
@@ -69,11 +83,11 @@
                     Cabinet
                     secretaries, federal judges, other federal executive officials, military officers, regulatory
                     officials,
-                    ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached
+                    ambassadors, and other federal uniformed officers, as well as trial of federal officials
+                    impeached
                     by the
                     House.</p>
             </div>
-
         </div>
 
         <div class="row">

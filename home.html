@@ -20,7 +20,7 @@
   <header class="container header">
     <div class="row header__content">
       <div class="col s6 header__content-left">
-          <a href="#!" class="brand-logo right"><img src="images/TGIF logo.png" class="logo-image" alt="TGIF logo"
+        <a href="#!" class="brand-logo right"><img src="images/TGIF-logo.png" class="logo-image" alt="TGIF logo"
             width="120px" height="40px"></a>
       </div>
       <div class="col s6 header__content-right">
@@ -31,19 +31,35 @@
 
   <!-- Dropdown Structure -->
   <div class="container">
+
     <ul id="dropdown1" class="dropdown-content">
-      <li><a href="senate-starter-page.html">Senate</a></li>
+      <li><a href="senate.html">Senate</a></li>
       <li class="divider"></li>
-      <li><a href="house-starter-page.html">House</a></li>
+      <li><a href="house.html">House</a></li>
+    </ul>
+
+    <ul id="dropdown2" class="dropdown-content">
+      <li><a href="#">Senate</a></li>
+      <li class="divider"></li>
+      <li><a href="attendance_house.html">House</a></li>
+    </ul>
+
+    <ul id="dropdown3" class="dropdown-content">
+      <li><a href="#">Senate</a></li>
+      <li class="divider"></li>
+      <li><a href="#">House</a></li>
     </ul>
 
     <nav>
       <div class="nav-wrapper">
         <ul class="left hide-on-med-and-down">
-          <li class="active"><a href="home-starter-page.html">Home</a></li>
-
+          <li class="active"><a href="home.html">Home</a></li>
           <!-- Dropdown Trigger -->
           <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Congress 113<i
+                class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Attendance<i
+                class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown3">Party Loyalty<i
                 class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
       </div>
@@ -51,7 +67,8 @@
 
     <!--Section-->
     <section>
-      <h2>About Us</h2>
+      <h1 class="title__main">Transparency Government in Fact</h1>
+      <h2 class="title__sub">About Us</h2>
       <p>Openness, accountability, and honesty define government transparency. In a free society, transparency is
         government's obligation to share information with citizens. It is at the heart of how citizens hold their public
         officials accountable. Here at TGIF we believe that government should be transparent.</p>

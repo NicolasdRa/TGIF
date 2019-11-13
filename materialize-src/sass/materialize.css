@@ -9057,4 +9057,12 @@ input[type=range]::-ms-thumb {
   margin-left: 15rem;
   color: white;
 }
+
+.title__main {
+  font-size: 3rem;
+}
+
+.title__sub {
+  font-size: 2.5rem;
+}
 /*# sourceMappingURL=materialize.css.map */
