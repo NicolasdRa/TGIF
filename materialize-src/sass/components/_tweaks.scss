@@ -39,3 +39,8 @@
         font-size: 2.5rem;
     }
 }
+
+.sidebyside {
+    display: flex;
+    justify-content: space-between;
+}
