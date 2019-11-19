@@ -1,54 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
 
-    </head>
-    
-    <body>
-         <nav>
-          <div>
-            <div>
-              <a href="#">TGIF</a>
-            </div>
-            <ul >
-              <li><a href="#">Home</a></li>
-              <li >
-                <a href="#">Congress 113</a>
-                <ul >
-                  <li><a href="#">Senate</a></li>
-                  <li><a href="#">House</a></li>
-                </ul>
-              </li>  
-              <li>
-                <a href="#">Attendance</a></li>
-                <ul>
-                    <li><a href="#">Senate</a></li>
-                    <li><a href="#">House</a></li>
-                </ul>
-              </li>  
-              <li>
-                <a href="#">Party Loyalty</a>
-                <ul>
-                    <li><a href="#">Senate</a></li>
-                    <li><a href="#">House</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </nav>        
-  
+<head>
 
-        <header>            
-            <div>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="materialize-src/sass/materialize.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Senate Loyalty</title>
+
+</head>
+
+<body>
+
+    <header class="container header">
+        <div class="row header__content">
+            <div class="col s6 header__content-left">
+                <a href="#!" class="brand-logo right"><img src="images/TGIF-logo.png" class="logo-image" alt="TGIF logo"
+                        width="120px" height="40px"></a>
             </div>
-        </header>
+            <div class="col s6 header__content-right">
+                <a href="mailto:webmaster@example.com" class="email-link">mailto:webmaster@example.com</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dropdown Structure -->
+    <div class="container">
+
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href="senate.html">Senate</a></li>
+            <li class="divider"></li>
+            <li><a href="house.html">House</a></li>
+        </ul>
+
+        <ul id="dropdown2" class="dropdown-content">
+            <li><a href="attendance_senate.html">Senate</a></li>
+            <li class="divider"></li>
+            <li><a href="attendance_house.html">House</a></li>
+        </ul>
+
+        <ul id="dropdown3" class="dropdown-content">
+            <li><a href="party-loyalty_senate.html">Senate</a></li>
+            <li class="divider"></li>
+            <li><a href="party-loyalty_house.html">House</a></li>
+        </ul>
+
+        <nav>
+            <div class="nav-wrapper">
+                <ul class="left hide-on-med-and-down">
+                    <li><a href="home.html">Home</a></li>
+
+                    <!-- Dropdown Trigger -->
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Congress 113<i
+                                class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Attendance<i
+                                class="material-icons right">arrow_drop_down</i></a></li>
+                    <li class="active"><a class="dropdown-trigger" href="#!" data-target="dropdown3">Party Loyalty<i
+                                class="material-icons right">arrow_drop_down</i></a></li>
+                </ul>
+            </div>
+        </nav>
         <!--Table container-->
         <div>
-            <h2>Party Loyalty</h2>
-            <p>Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively, tend to be the most faithful in voting for their party's nominee for office and legislation that backs their party's agenda. </p>
-    	    
+            <h2>Senate Party Loyalty</h2>
+            <p>Those who consider themselves to be strong partisans, strong Democrats and strong Republicans
+                respectively, tend to be the most faithful in voting for their party's nominee for office and
+                legislation that backs their party's agenda. </p>
+
             <h2>Senate at a glance</h2>
-            <table>
+            <table class="striped">
                 <thead>
                     <tr>
                         <th>Party</th>
@@ -56,27 +84,12 @@
                         <th>% Voted with Prty</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Republican</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>Democrat</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>Independent</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
+                <tbody id="At_a_Glance">
                 </tbody>
             </table>
 
             <h2>Least Loyal (Bottom 10% of Party)</h2>
-            <table>
+            <table class="striped">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -84,88 +97,33 @@
                         <th>% Party Votes</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
+                <tbody id="Least-Loyal">
                 </tbody>
             </table>
 
             <h2>Most Loyal (Top 10% of Party)</h2>
             <table>
-                <thead>
+                <thead class="striped">
                     <tr>
                         <th>Name</th>
                         <th>Number Party Votes</th>
                         <th>% Party Votes</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
+                <tbody id="Most-Loyal">
                 </tbody>
             </table>
 
-    	</div>    
+        </div>
+        <script type="text/javascript" src="materialize-src/js/bin/materialize.js"></script>
+        <script type="text/javascript" src="js/pro-Congress-113-senate.js"></script>
+        <script type="text/javascript" src="js/pro-Congress-113-house.js"></script>
+        <script type="text/javascript" src="js/datasource.js"></script>
+        <script type="text/javascript" src="js/at_a_glance.js"></script>
+        <script type="text/javascript" src="js/least-loyal.js"></script>
+        <script type="text/javascript" src="js/most-loyal.js"></script>
+        <script type="text/javascript" src="js/statistics.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
 </body>
+
 </html>

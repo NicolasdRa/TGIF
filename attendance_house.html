@@ -59,9 +59,9 @@
                     <li><a href="home.html">Home</a></li>
 
                     <!-- Dropdown Trigger -->
-                    <li class="active"><a class="dropdown-trigger" href="#!" data-target="dropdown1">Congress 113<i
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Congress 113<i
                                 class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Attendance<i
+                    <li class="active"><a class="dropdown-trigger" href="#!" data-target="dropdown2">Attendance<i
                                 class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a class="dropdown-trigger" href="#!" data-target="dropdown3">Party Loyalty<i
                                 class="material-icons right">arrow_drop_down</i></a></li>
@@ -81,8 +81,8 @@
                 electronic device. In the case of a tie, the motion in question fails. In the Senate, the Vice President
                 may (if present) cast the tiebreaking vote.</p>
 
-            <h2>Senate at a glance</h2>
-            <table>
+            <h2>House at a glance</h2>
+            <table class="striped">
                 <thead>
                     <tr>
                         <th>Party</th>
@@ -90,27 +90,12 @@
                         <th>% Voted with Prty</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Republican</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>Democrat</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>Independent</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
+                <tbody id="At_a_Glance">
                 </tbody>
             </table>
 
             <h2>Least Engaged (Bottom 10% Attendance)</h2>
-            <table>
+            <table class="striped">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -118,42 +103,12 @@
                         <th>% Missed</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
+                <tbody id="Least-Engaged">
                 </tbody>
             </table>
 
             <h2>Most Engaged (Top 10% Attendance)</h2>
-            <table>
+            <table class="striped">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -161,42 +116,7 @@
                         <th>% Missed</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
+                <tbody id="Most-Engaged">
                 </tbody>
             </table>
         </div>
@@ -205,6 +125,10 @@
     <script type="text/javascript" src="materialize-src/js/bin/materialize.js"></script>
     <script type="text/javascript" src="js/pro-Congress-113-senate.js"></script>
     <script type="text/javascript" src="js/pro-Congress-113-house.js"></script>
+    <script type="text/javascript" src="js/datasource.js"></script>
+    <script type="text/javascript" src="js/at_a_glance.js"></script>
+    <script type="text/javascript" src="js/least-engaged.js"></script>
+    <script type="text/javascript" src="js/most-engaged.js"></script>
     <script type="text/javascript" src="js/statistics.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 

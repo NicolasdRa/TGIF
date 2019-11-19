@@ -44,3 +44,34 @@
     display: flex;
     justify-content: space-between;
 }
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+
+    &__parties {
+
+        display: flex;
+        justify-content: space-between;
+
+        &-label {
+            padding: 1rem 1rem 0 0;
+        }
+
+        &-parties {
+            display: flex;
+        }
+    }
+
+    &__states {
+        display: flex;
+        justify-content: space-between;
+
+        &-label {
+            padding: 1rem 1rem 0 0;
+        }
+
+        &-sates {}
+    }
+
+}

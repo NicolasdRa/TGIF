@@ -41,15 +41,15 @@
         </ul>
 
         <ul id="dropdown2" class="dropdown-content">
-            <li><a href="#">Senate</a></li>
+            <li><a href="attendance_senate.html">Senate</a></li>
             <li class="divider"></li>
             <li><a href="attendance_house.html">House</a></li>
         </ul>
 
         <ul id="dropdown3" class="dropdown-content">
-            <li><a href="#">Senate</a></li>
+            <li><a href="party-loyalty_senate.html">Senate</a></li>
             <li class="divider"></li>
-            <li><a href="#">House</a></li>
+            <li><a href="party-loyalty_house.html">House</a></li>
         </ul>
 
         <nav>
@@ -68,6 +68,7 @@
         </nav>
         <!--Table container-->
         <div class="row">
+
             <div class="col-4">
             </div>
             <div class="col-8">
@@ -89,7 +90,52 @@
                     House.</p>
             </div>
         </div>
+        <div class="row filters">
+            <div class="col-6 filters__parties">
+                <div class="filters__parties-label">
+                    <label>Filter by Party</label>
+                </div>
+                <div class="filters__parties-parties">
+                    <form action="#">
+                        <div class="col s4">
+                            <p>
+                                <label>
+                                    <input type="checkbox" id="cbox-Dem" class="filled-in" id="cbox-Dem" />
+                                    <span>Democrats</span>
+                                </label>
+                            </p>
+                        </div>
+                        <div class="col s4">
+                            <p>
+                                <label>
+                                    <input type="checkbox" id="cbox-Rep" class="filled-in" id="cbox-Rep" />
+                                    <span>Republicans</span>
+                                </label>
+                            </p>
+                        </div>
+                        <div class="col s4">
+                            <p>
+                                <label>
+                                    <input type="checkbox" id="cbox-Ind" class="filled-in" id="cbox-Ind" />
+                                    <span>Independents</span>
+                                </label>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
+            <div class="col-4 filters__states">
+                <div class="filters__states-label">
+                    <label>Filter by State</label>
+                </div>
+                <div class="filters__states-states">
+                    <select class="browser-default">
+                        <option value="" disabled selected>Choose your option</option>
+                    </select>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-4">
             </div>
@@ -143,6 +189,10 @@
 
     <script type="text/javascript" src="js/pro-Congress-113-senate.js"></script>
     <script type="text/javascript" src="js/pro-Congress-113-house.js"></script>
+    <script type="text/javascript" src="js/datasource.js"></script>
+    <script type="text/javascript" src="js/statistics.js"></script>
+    <script type="text/javascript" src="js/states.js"></script>
+    <script type="text/javascript" src="js/maintable.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 
 </body>

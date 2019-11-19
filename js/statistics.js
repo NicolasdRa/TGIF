@@ -1,19 +1,10 @@
-// Creates variable members according to page title
-
-let members
-if (document.title === "Senate Members") {
-    members = dataSenate.results[0].members;
-} else {
-    members = dataHouse.results[0].members;
-}
-
-// CREATES one new array for each party
+// CREATES  new array for each party
 
 let demArray = []
 let repArray = []
 let indArray = []
 
-function createMemberArrays(mem) {
+function createPartyArrays(mem) {
 
     if (mem.party === "D") {
         demArray.push(mem)
@@ -24,58 +15,63 @@ function createMemberArrays(mem) {
     }
 }
 
-// // passes number of members directly into the housestatistics object // WORKS
-// function splitMembers(mem) {
-//     if (mem.party === "D") {
-//         houseStatistics.Democrats++
-//     } else if (mem.party === "R") {
-//         houseStatistics.Republicans++
-//     } else if (mem.party === "I") {
-//         houseStatistics.Independents++
-//     }
-// };
 
 // PARTY LOYALTY calculations
 
-let plDem = 0
-let plRep = 0
+let plWithDem = 0
+let plWithRep = 0
+let plAgainstDem = 0
+let plAgainstRep = 0
 
 function getAverages() {
 
     demArray.forEach((member) => {
-        plDem += member.votes_with_party_pct;
+        plWithDem += member.votes_with_party_pct;
+        plAgainstDem += member.votes_against_party_pct;
+
     })
-    
+
     repArray.forEach((member) => {
-        plRep  += member.votes_with_party_pct;
+        plWithRep += member.votes_with_party_pct;
+        plAgainstRep += member.votes_against_party_pct;
     })
 }
 
+// ENGAGEMENT calculations
+
+
+// RUNS ALL FUNCTIONS
 
 function runStats() {
 
+    // let members
+    // if (title === "Senate Members" || "Senate Attendance" || "Senate Loyalty") {
+    //     members = dataSenate.results[0].members;
+    // } else {
+    //     members = dataHouse.results[0].members;
+    // }
+
     members.forEach((member) => {
-        createMemberArrays(member)
+        createPartyArrays(member)
+
     })
 }
 
+//createMembersArrays()
 runStats()
 getAverages()
 
 
 // OBJECT statistics
-
-let houseStatistics = {
+let statistics = {
 
     Democrats: demArray.length,
     Republicans: repArray.length,
     Independents: indArray.length,
-    plDemocrats: (plDem / demArray.length),
-    plRepublicans: (plRep / repArray.length),
-    mostEngaged: "{null}",
+    plDemocrats: (plWithDem / demArray.length),
+    plRepublicans: (plWithRep / repArray.length),
+    pDisDem: (plAgainstDem / demArray.length),
+    pDisRep: (plAgainstRep / demArray.length),
+    mostEngaged: "null",
     leastEngaged: "null",
-    mostMissers: "null",
-    leastMissers: "null"
 };
-
-console.log("satistics", houseStatistics);
