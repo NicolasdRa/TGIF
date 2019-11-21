@@ -5,14 +5,14 @@ function fillLeastEngagedTable() {
         return b.missed_votes_pct - a.missed_votes_pct;
     });
 
-    
+
     // CREATES FIRST 10% 
 
     var cutLength = Math.round((members.length) * 0.1)
     var splicedMembers = sortedMembers.splice(0, cutLength)
 
-    
-    
+
+
     // ADDS DUPPLICATES
 
     splicedMembers.forEach((member) => {
@@ -49,8 +49,14 @@ function fillLeastEngagedTable() {
             fullName = firstName + " " + middleName + " " + lastName
         };
 
-        // Fills cell Data 
-        td1.innerHTML = fullName
+        // Creates Link
+        var a = document.createElement('a');
+        a.href = member.url;
+
+        // Creates data cells 
+        a.innerHTML = fullName
+        td1.appendChild(a)
+
         td2.innerHTML = member.missed_votes
         td3.innerHTML = member.missed_votes_pct
 

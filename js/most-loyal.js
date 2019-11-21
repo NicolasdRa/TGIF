@@ -6,7 +6,7 @@ function fillMostLoyalTable() {
     });
 
 
-console.log(sortedMembersMost)
+    console.log(sortedMembersMost)
 
     // CREATES FIRST 10% 
 
@@ -53,16 +53,26 @@ console.log(sortedMembersMost)
             fullName = firstName + " " + middleName + " " + lastName
         };
 
-        // Fills cell Data 
-        td1.innerHTML = fullName
+
+        // Creates Link
+        var a = document.createElement('a');
+        a.href = member.url;
+
+
+        // Creates data cells 
+        a.innerHTML = fullName
+        td1.appendChild(a)
+
         td2.innerHTML = member.total_votes
         td3.innerHTML = member.votes_with_party_pct
+
 
         // Appends cells
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);
 
+        
         // Appends rows
         tableMost.appendChild(tr);
     })

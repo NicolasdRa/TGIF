@@ -6,7 +6,7 @@ function fillMostEngagedTable() {
     });
 
 
-console.log(sortedMembersMost)
+    console.log(sortedMembersMost)
 
     // CREATES FIRST 10% 
 
@@ -52,8 +52,15 @@ console.log(sortedMembersMost)
             fullName = firstName + " " + middleName + " " + lastName
         };
 
-        // Fills cell Data 
-        td1.innerHTML = fullName
+        // Creates Link
+        var a = document.createElement('a');
+        a.href = member.url;
+
+
+        // Creates data cells 
+        a.innerHTML = fullName
+        td1.appendChild(a)
+        
         td2.innerHTML = member.missed_votes
         td3.innerHTML = member.missed_votes_pct
 

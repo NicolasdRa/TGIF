@@ -10,6 +10,7 @@ $('select').formSelect()
 if (title === "Senate Members" || title === "House Members") {
     fillMainTables()
     fillsStateOptions()
+    fillsPartyOptions()
 
 } else if (title === "Senate Attendance" || title === "House Attendance") {
     fillaAtGlanceTable()
