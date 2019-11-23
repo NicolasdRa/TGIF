@@ -1,24 +1,44 @@
-//necessary for Materialize drop down menu
+//Necessary for Materialize drop down menu, accordion, checkboxes
 $(".dropdown-trigger").dropdown()
 $('.collapsible').collapsible()
 $('.materialboxed').materialbox()
 $('select').formSelect()
 
 
-// SPECIFIC FUNCTION SELECTOR
+// Main variables 
+var title = document.title
 
-if (title === "Senate Members" || title === "House Members") {
-    fillMainTables()
-    fillsStateOptions()
-    fillsPartyOptions()
+var url;
+if (title === "Senate Members") {
+    url = 'https://api.propublica.org/congress/v1/116/senate/members.json'
+} else if (title === "House Members") {
+    url = 'https://api.propublica.org/congress/v1/116/house/members.json'
+}
 
-} else if (title === "Senate Attendance" || title === "House Attendance") {
-    fillaAtGlanceTable()
-    fillLeastEngagedTable()
-    fillMostEngagedTable()
+var members = []
 
-} else if (title === "Senate Loyalty" || title === "House Loyalty") {
-    fillaAtGlanceTable()
-    fillLeastLoyalTable()
-    fillMostLoyalTable()
+// FETCH CONTROLER
+if (title === "Senate Members" || title === "House Members" || title === "Senate Attendance" || title === "House Attendance" || title === "Senate Loyalty" || title === "House Loyalty") {
+
+    // DATA REQUEST
+    fetch(url, {
+            method: "GET",
+            headers: {
+                "X-API-Key": "zgVuv018iIYLQCaUljwf3zgKx6h7cd2MlsT1pHsT"
+            }
+        })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            (data.results[0].members).forEach(member => {
+                members.push(member)
+            });
+            fillTables()
+
+        })
+        .catch(function (error) {
+            console.log(error)
+        });
+
 }
