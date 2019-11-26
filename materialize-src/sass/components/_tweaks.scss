@@ -73,5 +73,13 @@
 
         &-sates {}
     }
-
 }
+
+.preloader-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.hide-loader{
+    display:none;
+    }

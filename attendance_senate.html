@@ -3,17 +3,16 @@
 
 <head>
 
-    <!--Import Google Icon Font-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <!--Import materialize.css-->
     <link rel="stylesheet" href="materialize-src/sass/materialize.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Senate Attendance</title>
 
 </head>
@@ -24,7 +23,7 @@
         <div class="row header__content">
             <div class="col s6 header__content-left">
                 <a href="#!" class="brand-logo right"><img src="images/TGIF-logo.png" class="logo-image" alt="TGIF logo"
-                        width="120px" height="40px"></a>
+                        width="120" height="40"></a>
             </div>
             <div class="col s6 header__content-right">
                 <a href="mailto:webmaster@example.com" class="email-link">mailto:webmaster@example.com</a>
@@ -108,6 +107,21 @@
                             <tbody id="At_a_Glance">
                             </tbody>
                         </table>
+                        <div class="col s4"></div>
+                        <div class="row preloader-wrapper big active" id="loader">
+                            <div class="spinner-layer spinner-blue-only">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                            <div class="col s4"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -125,7 +139,19 @@
                 <tbody id="Least-Engaged">
                 </tbody>
             </table>
-
+            <div class="row preloader-wrapper big active" id="loader">
+                <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
             <h2>Most Engaged (Top 10% Attendance)</h2>
             <table class="striped">
                 <thead>
@@ -138,19 +164,51 @@
                 <tbody id="Most-Engaged">
                 </tbody>
             </table>
+            <div class="row preloader-wrapper big active" id="loader">
+                <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <script type="text/javascript" src="materialize-src/js/bin/materialize.js"></script>
-    <script type="text/javascript" src="js/pro-Congress-113-senate.js"></script>
-    <script type="text/javascript" src="js/pro-Congress-113-house.js"></script>
-    <script type="text/javascript" src="js/datasource.js"></script>
-    <script type="text/javascript" src="js/at_a_glance.js"></script>
-    <script type="text/javascript" src="js/least-engaged.js"></script>
-    <script type="text/javascript" src="js/most-engaged.js"></script>
-    <script type="text/javascript" src="js/statistics.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
-    
+    <footer class="page-footer container">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer
+                        content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © TGIF 2019. All rights reserved
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="materialize-src/js/bin/materialize.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/tables.js"></script>
 
 </body>
 

@@ -9115,4 +9115,17 @@ input[type=range]::-ms-thumb {
 .filters__states-label {
   padding: 1rem 1rem 0 0;
 }
+
+.preloader-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.hide-loader {
+  display: none;
+}
 /*# sourceMappingURL=materialize.css.map */
