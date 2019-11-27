@@ -7,7 +7,7 @@ $('select').formSelect()
 
 // Main variables 
 var title = document.title
-
+var membersGlobal 
 var url;
 if (title === "Senate Members" || title === "Senate Attendance" || title === "Senate Loyalty") {
     url = 'https://api.propublica.org/congress/v1/116/senate/members.json'
@@ -18,6 +18,7 @@ if (title === "Senate Members" || title === "Senate Attendance" || title === "Se
 
 // FETCH CONTROLER
 if (title === "Senate Members" || title === "House Members" || title === "Senate Attendance" || title === "House Attendance" || title === "Senate Loyalty" || title === "House Loyalty") {
+
 
     // DATA REQUEST
     fetch(url, {
@@ -30,15 +31,13 @@ if (title === "Senate Members" || title === "House Members" || title === "Senate
             return response.json();
         })
         .then(function (data) {
-            //(data.results[0].members).forEach(member => {
-            //   members.push(member)
-            // });
+
             var members = data.results[0].members
-
-            fillTables(members)
-
-            //document.querySelector(".preloader-wrapper big active").style.display ='none';
-            $('#loader').addClass("hide-loader");
+            membersGlobal = members
+            functionController(members)
+            
+            document.querySelector('#loader').style.display ='none';
+            // $('#loader').addClass("hide-loader");
 
         })
         .catch(function (error) {
@@ -46,20 +45,25 @@ if (title === "Senate Members" || title === "House Members" || title === "Senate
         });
 }
 
-function fillTables(members) {
+function functionController(members) {
 
     if (title === "Senate Members" || title === "House Members") {
-        runCheckboxFilter()
-        runDdFilter(members)
+        getSelectedText()
+        checkBoxSelected()
+        runDropdownFilter(members)
         fillMainTable(members)
-
+        runEventListeners(members)
+        insertMembers(members)
+      
     } else if (title === "Senate Attendance" || title === "House Attendance") {
+        
         runStats(members)
         fillaAtGlanceTable()
         fillLeastEngagedTable(members)
         fillMostEngagedTable(members)
 
     } else if (title === "Senate Loyalty" || title === "House Loyalty") {
+      
         runStats(members)
         fillaAtGlanceTable()
         fillLeastLoyalTable(members)

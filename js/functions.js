@@ -1,96 +1,24 @@
-// RUNS ALL STATISTICS / GLobal
-function runStats(members) {
+//Filter Variables Checkbox / Dropdown
+const tableBody = document.querySelector("tbody");
+const ddmenu = document.querySelector('.browser-default');
 
-    // CREATES  new array for each party
 
-    let demArray = []
-    let repArray = []
-    let indArray = []
+// CHECKBOX FILTER (by party)
+// Returns array of Values from Checked Checkboxes
+function checkBoxSelected() {
+    var array = []
+    var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
 
-    function createPartyArrays(mem) {
-        if (mem.party === "D") {
-            demArray.push(mem)
-        } else if (mem.party === "R") {
-            repArray.push(mem)
-        } else if (mem.party === "I") {
-            indArray.push(mem)
-        }
+    for (var i = 0; i < checkboxes.length; i++) {
+        array.push(checkboxes[i].value)
     }
-
-    // PARTY LOYALTY calculations / Global
-    let plWithDem = 0
-    let plWithRep = 0
-    let plAgainstDem = 0
-    let plAgainstRep = 0
-
-    function getAverages() {
-        demArray.forEach((member) => {
-            plWithDem += member.votes_with_party_pct;
-            plAgainstDem += member.votes_against_party_pct;
-        })
-
-        repArray.forEach((member) => {
-            plWithRep += member.votes_with_party_pct;
-            plAgainstRep += member.votes_against_party_pct;
-        })
-    }
-    getAverages()
-
-
-    // runs all stats
-    members.forEach((member) => {
-        createPartyArrays(member)
-    })
-
-
-    // Statistics OBJECT
-    let statistics = {
-
-        Democrats: demArray.length,
-        Republicans: repArray.length,
-        Independents: indArray.length,
-        plDemocrats: (plWithDem / demArray.length),
-        plRepublicans: (plWithRep / repArray.length),
-        pDisDem: (plAgainstDem / demArray.length),
-        pDisRep: (plAgainstRep / demArray.length),
-        mostEngaged: "null",
-        leastEngaged: "null",
-    };
-
-    console.log(statistics)
-
-    statistics.Democrats = demArray.length
-    statistics.Republicans = repArray.length
-    statistics.Independents = indArray.length
-}
-
-function runCheckboxFilter() {
-    // Filter by Party Function (checkboxes)
-
-    // Event listener
-    var checkBoxSelection = document.querySelector('.checkboxes')
-    checkBoxSelection.addEventListener('change', fillMainTable)
-
-    // Returns array of Values from Checked Checkboxes
-    function checkBoxesValues() {
-        var array = []
-        var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
-        for (var i = 0; i < checkboxes.length; i++) {
-            array.push(checkboxes[i].value)
-        }
-        return array
-    }
-
-    // Filter Variables Checkbox / Dropdown
-    const tableBody = document.querySelector("tbody");
-    var checkBoxes = checkBoxesValues()
-    var ddmenu = getSelectedText()
-
+    return array
 }
 
 
-// Filter by State
-function runDdFilter(members) {
+// DROPDOWN FILTER (by State)
+// Runs Dropdown Filter
+function runDropdownFilter(members, states) {
 
     // Creates array of States
     var states = []
@@ -110,8 +38,6 @@ function runDdFilter(members) {
     states.splice(0, 0, 'ALL STATES');
 
     // Fills OPTIONS with State Names
-    const ddmenu = document.querySelector('.browser-default');
-
     states.forEach((i) => {
         var option = document.createElement("option");
 
@@ -121,83 +47,168 @@ function runDdFilter(members) {
         // Appends cells
         ddmenu.appendChild(option);
     })
-
-    // Event Listener
-    ddmenu.addEventListener('change', fillMainTable);
-
-    //Gets selected text from Dropdown Menu options
-    function getSelectedText() {
-        const ddmenu = document.querySelector('.browser-default');
-        return ddmenu.options[ddmenu.selectedIndex].text;
-    }
-    getSelectedText()
 }
 
 
-// FILLS MAIN TABLES WITH MEMBERS
-function fillMainTable(members) {
+//Gets selected text from options
+function getSelectedText() {
+    return ddmenu.options[ddmenu.selectedIndex].text;
+}
+
+
+// Creates Main Tables content
+function fillMainTable() {
+var members = membersGlobal
+    var selectedText = getSelectedText()
+    var checkBoxSelection = checkBoxSelected()
 
     // Clears Tables before printing members
     tableBody.innerHTML = ""
 
-    // Creates Tables and fills content   
+    // Member controller   
     members.forEach((member) => {
 
         // Checks if Party Name is included in the array before creating element
-        if ((ddmenu === 'ALL STATES' || ddmenu === 'Choose State') && (checkBoxes.includes(member.party))) {
-            insertMembers()
-        } else if (checkBoxes.includes(member.party) && (ddmenu === (member.state))) {
-            insertMembers()
-        }
-
-        function insertMembers() {
-            const tr = document.createElement("tr");
-            const td1 = document.createElement("td");
-            const td2 = document.createElement("td");
-            const td3 = document.createElement("td");
-            const td4 = document.createElement("td");
-            const td5 = document.createElement("td");
-
-            // Creates Full-Name Field
-            var firstName = member.first_name
-            var middleName = member.middle_name
-            var lastName = member.last_name
-
-            var fullName
-            if (middleName === null) {
-                fullName = firstName + " " + lastName
-            } else {
-                fullName = firstName + " " + middleName + " " + lastName
-            };
-
-            // Creates Link
-            var a = document.createElement('a');
-            a.href = member.url;
-
-            // Creates data cells 
-            a.innerHTML = fullName
-            td1.appendChild(a)
-            td2.innerHTML = member.party
-            td3.innerHTML = member.state
-            td4.innerHTML = member.seniority
-            td5.innerHTML = member.votes_with_party_pct
-
-            // Appends cells
-            tr.appendChild(td1);
-            tr.appendChild(td2);
-            tr.appendChild(td3);
-            tr.appendChild(td4);
-            tr.appendChild(td5);
-
-            // Appends rows
-            tableBody.appendChild(tr);
+        if ((selectedText === 'ALL STATES' || selectedText === 'Choose State') && (checkBoxSelection.includes(member.party))) {
+            insertMembers(member)
+        } else if (checkBoxSelection.includes(member.party) && (selectedText === (member.state))) {
+            insertMembers(member)
         }
     })
 }
 
-// FILLS AT A GLANCE TABLES
+// General Member Injector Function
+function insertMembers(member) {
+    const tr = document.createElement("tr");
+    const td1 = document.createElement("td");
+    const td2 = document.createElement("td");
+    const td3 = document.createElement("td");
+    const td4 = document.createElement("td");
+    const td5 = document.createElement("td");
 
+    // Creates Full-Name Field
+    var firstName = member.first_name
+    var middleName = member.middle_name
+    var lastName = member.last_name
+
+    var fullName
+    if (middleName === null) {
+        fullName = firstName + " " + lastName
+    } else {
+        fullName = firstName + " " + middleName + " " + lastName
+    };
+
+    // Creates Link
+    var a = document.createElement('a');
+    a.href = member.url;
+
+    // Creates data cells 
+    a.innerHTML = fullName
+    td1.appendChild(a)
+    td2.innerHTML = member.party
+    td3.innerHTML = member.state
+    td4.innerHTML = member.seniority
+    td5.innerHTML = member.votes_with_party_pct
+
+    // Appends cells
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    tr.appendChild(td4);
+    tr.appendChild(td5);
+
+    // Appends rows
+    tableBody.appendChild(tr);
+}
+
+
+// EVENT LISTENERS
+function runEventListeners() {
+
+    // Checkboxes
+    var checkBoxes = document.getElementById('checkbox-filter')
+    checkBoxes.addEventListener('change', fillMainTable)
+
+    // Dropdown Menu
+    ddmenu.addEventListener('change', fillMainTable)
+}
+
+
+// RUNS ALL STATISTICS / GLobal
+function runStats(members) {
+
+    // CREATES  new array for each party
+    let demArray = []
+    let repArray = []
+    let indArray = []
+
+    function createPartyArrays(mem) {
+        if (mem.party === "D") {
+            demArray.push(mem)
+        } else if (mem.party === "R") {
+            repArray.push(mem)
+        } else if (mem.party === "I") {
+            indArray.push(mem)
+        }
+    }
+
+    // Creates party arrays
+    members.forEach((member) => {
+        createPartyArrays(member)
+    })
+
+    
+    getAverages(demArray, repArray, indArray)
+}
+
+
+function getAverages(demArray, repArray, indArray) {
+
+    // PARTY LOYALTY calculations / Global
+       let plWithDem = 0
+       let plWithRep = 0
+       let plAgainstDem = 0
+       let plAgainstRep = 0
+
+    demArray.forEach((member) => {
+        plWithDem += member.votes_with_party_pct;
+        plAgainstDem += member.votes_against_party_pct;
+    })
+
+    repArray.forEach((member) => {
+        plWithRep += member.votes_with_party_pct;
+        plAgainstRep += member.votes_against_party_pct;
+    })
+
+
+    // Fills empty object initialised globally
+    statistics.Democrats =  demArray.length
+    statistics.Republicans =  repArray.length
+    statistics.Independents = indArray.length
+    statistics.plDemocrats = (plWithDem / demArray.length) 
+    statistics.plRepublicans = (plWithRep / repArray.length),
+    statistics.pdisDemocrats = (plAgainstDem / demArray.length)
+    statistics.pdisRepublicans = (plAgainstRep / demArray.length)
+
+}
+
+// Statistics OBJECT
+    var statistics = {
+        Democrats: 0,
+        Republicans: 0,
+        Independents: 0,
+        plDemocrats: 0,
+        plRepublicans: 0,
+        pDisDemocrats: 0,
+        pDisRepublicans: 0,
+        mostEngaged: "null",
+        leastEngaged: "null",
+    };
+
+
+// FILLS AT A GLANCE TABLES
 function fillaAtGlanceTable() {
+
     // Selects Table Bodies
     const tableBodyatGlance = document.querySelector("#At_a_Glance")
 
