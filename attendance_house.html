@@ -8,11 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
     <!--Import materialize.css-->
-    <link rel="stylesheet" href="materialize-src/sass/materialize.css">
+    <link rel="stylesheet" href="node_modules\materialize-css\dist\css\materialize.css">
 
     <title>House Attendance</title>
 
@@ -20,20 +17,20 @@
 
 <body>
 
-    <header class="container header">
-        <div class="row header__content">
-            <div class="col s6 header__content-left">
-                <a href="#!" class="brand-logo right"><img src="images/TGIF-logo.png" class="logo-image" alt="TGIF logo"
-                        width="120" height="40"></a>
-            </div>
-            <div class="col s6 header__content-right">
-                <a href="mailto:webmaster@example.com" class="email-link">mailto:webmaster@example.com</a>
-            </div>
-        </div>
-    </header>
+    <!-- <header class="container header">
+    <div class="row header__content">
+      <div class="col s6 header__content-left">
+        <a href="#!" class="brand-logo right"><img src="./images/TGIF-logo.png" class="logo-image" alt="TGIF logo"
+            width="120" height="40"></a>
+      </div>
+      <div class="col s6 header__content-right">
+        <a href="mailto:webmaster@example.com" class="email-link">mailto:webmaster@example.com</a>
+      </div>
+    </div>
+  </header> -->
 
     <!-- Dropdown Structure -->
-    <div class="container">
+    <div class="row">
 
         <ul id="dropdown1" class="dropdown-content">
             <li><a href="senate.html">Senate</a></li>
@@ -53,25 +50,100 @@
             <li><a href="party-loyalty_house.html">House</a></li>
         </ul>
 
-        <nav>
-            <div class="nav-wrapper">
-                <ul class="left hide-on-med-and-down">
-                    <li><a href="home.html">Home</a></li>
+        <nav class="nav-wrapper indigo lighten-2">
+            <div class='container'>
+                <a href="#" class='brand-logo'>TGIF</a>
+                <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+                <ul class='right hide-on-med-and-down'>
+                    <li class="active"><a href="home.html">Home</a></li>
 
                     <!-- Dropdown Trigger -->
                     <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Congress 113<i
                                 class="material-icons right">arrow_drop_down</i></a></li>
-                    <li class="active"><a class="dropdown-trigger" href="#!" data-target="dropdown2">Attendance<i
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Attendance<i
                                 class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a class="dropdown-trigger" href="#!" data-target="dropdown3">Party Loyalty<i
                                 class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
-            </div>
         </nav>
-        <!--Table container-->
+
+        <ul id="slide-out" class="sidenav">
+            <li>
+                <div class="user-view">
+                    <div class="background fit">
+                        <img src="images/paper-stacking-working-document-sm.png">
+                    </div>
+                    <a href="#user"><img class="circle" src="images/TGIF-logo.png"></a>
+                    <a href="#name"><span class="white-text name">Government Transparency in Fact</span></a>
+                </div>
+            </li>
+            <li><a href="#!"><i class="material-icons">mail_outline</i>info@tgif.com</a></li>
+            <!-- <li class="search">
+        <div class="search-wrapper">
+          <input id='search' placeholder='Search'>
+          <i class="material-icons">search</i>
+          <div class="search-results"></div>
+        </div>
+      </li> -->
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li class='no-padding bold'>
+                <a href="home.html" class="waves-effect waves-indigo">Home</a>
+            </li>
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <li class="bold">
+                        <a class="collapsible-header waves-effect waves-indigo" tabindex='0'>Congress 113</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="senate.html">Senate</a>
+                                </li>
+                                <li>
+                                    <a href="house.html">House</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold">
+                        <a class="collapsible-header waves-effect waves-indigo" tabindex='0'>Attendance</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="attendance_senate.html">Senate</a>
+                                </li>
+                                <li>
+                                    <a href="attendance_house.html">House</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold">
+                        <a class="collapsible-header waves-effect waves-indigo" tabindex='0'>Party Loyalty</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="party-loyalty_senate.html">Senate</a>
+                                </li>
+                                <li>
+                                    <a href="party-loyalty_house.html">House</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+
+    </div>
+    <!--Table container-->
+    <section class="container">
         <div class="row sidebyside">
             <div class="col s6">
-                <h2 class="title_sub">Attendance</h2>
+                <h4 class="title_sub">Attendance</h4>
                 <p>The Constitution specifies that a majority of members constitutes a quorum to do business in each
                     house.
                     Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus,
@@ -88,7 +160,7 @@
                     may (if present) cast the tiebreaking vote.</p>
             </div>
             <div class="col s6">
-                <h2 class="title_sub">House at a glance</h2>
+                <h4 class="title_sub">House at a glance</h4>
                 <div class="row">
                     <div class="col-4">
                     </div>
@@ -124,7 +196,8 @@
             </div>
         </div>
         <div class="section">
-            <h2>Least Engaged (Bottom 10% Attendance)</h2>
+            <h4>Least Engaged</h4>
+            <h5>(bottom 10%)</h5>
             <table class="striped">
                 <thead>
                     <tr>
@@ -149,7 +222,8 @@
                     </div>
                 </div>
             </div>
-            <h2>Most Engaged (Top 10% Attendance)</h2>
+            <h4>Most Engaged</h4>
+            <h5>(top 10%)</h5>
             <table class="striped">
                 <thead>
                     <tr>
@@ -175,22 +249,24 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <footer class="page-footer container">
+        </div>
+    </section>
+    <footer class="page-footer docs-footer grey">
         <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer
-                        content.</p>
+            <div class="row" style='margin-bottom: 0;'>
+                <div class="col s12 m10 offset-m1">
+                    <h5 class="white-text">Help Us Continue Our Task</h5>
+                    <p class="grey-text text-lighten-4">Your contribution will make our work possible. GTIF is a non
+                        profit
+                        organisation sustained by
+                        independent collaborators.</p>
+                    <a href="#!" class="btn waves-effect waves-light indigo lighten-2">Support Us</a>
                 </div>
+
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">Links</h5>
                     <ul>
                         <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
                     </ul>
                 </div>
             </div>
@@ -203,7 +279,8 @@
         </div>
     </footer>
 
-    <script src="materialize-src/js/bin/materialize.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="node_modules\materialize-css\dist\js\materialize.js"></script>
     <script src="js/main.js"></script>
     <script src="js/functions.js"></script>
 
