@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Import materialize.css-->
+  <!--materialize.css-->
   <link rel="stylesheet" href="node_modules\materialize-css\dist\css\materialize.css">
 
   <title>Government Transparency Fact</title>
@@ -16,6 +16,7 @@
 </head>
 
 <body>
+
   <!-- <header class="container header">
     <div class="row header__content">
       <div class="col s6 header__content-left">
@@ -28,9 +29,8 @@
     </div>
   </header> -->
 
-  <!-- Dropdown Structure -->
-  <div class="row">
-
+  <main>
+    <!-- Dropdown Structures -->
     <ul id="dropdown1" class="dropdown-content">
       <li><a href="senate.html">Senate</a></li>
       <li class="divider"></li>
@@ -49,28 +49,32 @@
       <li><a href="party-loyalty_house.html">House</a></li>
     </ul>
 
-    <nav class="nav-wrapper indigo lighten-2">
-      <div class='container'>
-        <a href="#" class='brand-logo'>TGIF</a>
-        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <nav>
+      <div class="nav-wrapper indigo lighten-2">
+        <div class='container'>
+          <a href="home.html" class='brand-logo'>TGIF</a>
+          <a href="#!" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-        <ul class='right hide-on-med-and-down'>
-          <li class="active"><a href="home.html">Home</a></li>
+          <ul class='right hide-on-med-and-down'>
+            <li class="active"><a href="home.html">Home</a></li>
 
-          <!-- Dropdown Trigger -->
-          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Congress 113<i
-                class="material-icons right">arrow_drop_down</i></a></li>
-          <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Attendance<i
-                class="material-icons right">arrow_drop_down</i></a></li>
-          <li><a class="dropdown-trigger" href="#!" data-target="dropdown3">Party Loyalty<i
-                class="material-icons right">arrow_drop_down</i></a></li>
-        </ul>
+            <!-- Dropdown Trigger -->
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Congress 113<i
+                  class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Attendance<i
+                  class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown3">Party Loyalty<i
+                  class="material-icons right">arrow_drop_down</i></a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
 
+    <!-- Slide out Nav - phone & Ipads -->
     <ul id="slide-out" class="sidenav">
       <li>
         <div class="user-view">
-          <div class="background fit">
+          <div class="background">
             <img src="images/paper-stacking-working-document-sm.png">
           </div>
           <a href="#user"><img class="circle" src="images/TGIF-logo.png"></a>
@@ -78,23 +82,16 @@
         </div>
       </li>
       <li><a href="#!"><i class="material-icons">mail_outline</i>info@tgif.com</a></li>
-      <!-- <li class="search">
-        <div class="search-wrapper">
-          <input id='search' placeholder='Search'>
-          <i class="material-icons">search</i>
-          <div class="search-results"></div>
-        </div>
-      </li> -->
       <li>
         <div class="divider"></div>
-      </li>
-      <li class='no-padding bold'>
-        <a href="home.html" class="waves-effect waves-indigo">Home</a>
       </li>
       <li>
         <ul class="collapsible collapsible-accordion">
           <li class="bold">
-            <a class="collapsible-header waves-effect waves-indigo" tabindex='0'>Congress 113</a>
+            <a href="home.html" class="collapsible-header waves-effect waves-indigo" tabindex='0'>Home</a>
+          </li>
+          <li class="bold">
+            <a class="collapsible-header waves-effect waves-indigo" tabindex='1'>Congress 113</a>
             <div class="collapsible-body">
               <ul>
                 <li>
@@ -107,7 +104,7 @@
             </div>
           </li>
           <li class="bold">
-            <a class="collapsible-header waves-effect waves-indigo" tabindex='0'>Attendance</a>
+            <a class="collapsible-header waves-effect waves-indigo" tabindex='2'>Attendance</a>
             <div class="collapsible-body">
               <ul>
                 <li>
@@ -120,7 +117,7 @@
             </div>
           </li>
           <li class="bold">
-            <a class="collapsible-header waves-effect waves-indigo" tabindex='0'>Party Loyalty</a>
+            <a class="collapsible-header waves-effect waves-indigo" tabindex='3'>Party Loyalty</a>
             <div class="collapsible-body">
               <ul>
                 <li>
@@ -135,103 +132,135 @@
         </ul>
       </li>
     </ul>
-  </div>
+    </div>
 
-  <!--Section-->
-  <section class='container'>
-    <div class="row">
-      <h4 class="center">Government Transparency in Fact</h4>
-      <h5 class="">About Us</h5>
-      <p>Openness, accountability, and honesty define government transparency. In a free society, transparency is
-        government's obligation to share information with citizens. It is at the heart of how citizens hold their public
-        officials accountable. Here at TGIF we believe that government should be transparent.</p>
-      <p>Governments exist to serve the people. Information on how officials conduct the public business and spend
-        taxpayer money must be readily available and easily understood. This transparency allows good and just
-        governance.
-        Transparency promotes accountability and provides information for citizens about what their Government is doing.
-      </p>
-      <p>We also believe that government should be participatory. Public engagement enhances the Government's
-        effectiveness and improves the quality of its decisions. Knowledge is widely dispersed in society, and public
-        officials benefit from having access to that dispersed knowledge. We invite you to use our site to become
-        actively
-        engaged in American government.</p>
-      <p>TGIF works to disclose information in forms that the public can readily find and use. We solicit public
-        feedback
-        to identify information of greatest use to the public.</p>
+    <!--Section-->
+    <section class='container'>
+      <div class="row">
+        <h4>Government Transparency in Fact</h4>
+        <h5>About Us</h5>
+        <p>Openness, accountability, and honesty define government transparency. In a free society, transparency is
+          government's obligation to share information with citizens. It is at the heart of how citizens hold their
+          public
+          officials accountable. Here at TGIF we believe that government should be transparent.</p>
+        <p>Governments exist to serve the people. Information on how officials conduct the public business and spend
+          taxpayer money must be readily available and easily understood. This transparency allows good and just
+          governance.
+          Transparency promotes accountability and provides information for citizens about what their Government is
+          doing.
+        </p>
+        <ul class="collapsible">
+          <li>
+            <div class="collapsible-header"><i class="material-icons">add</i>Read more..</div>
+            <div class="collapsible-body">
+              <p>We also believe that government should be participatory. Public engagement enhances the Government's
+                effectiveness and improves the quality of its decisions. Knowledge is widely dispersed in society, and
+                public
+                officials benefit from having access to that dispersed knowledge. We invite you to use our site to
+                become
+                actively
+                engaged in American government.</p>
+              <p>TGIF works to disclose information in forms that the public can readily find and use. We solicit public
+                feedback
+                to identify information of greatest use to the public.</p>
+            </div>
+          </li>
+        </ul>
 
-      <ul class="collapsible">
-        <li>
-          <div class="collapsible-header"><i class="material-icons">place</i>Read more</div>
-          <div class="collapsible-body">
-            <h4>Background History of Government Transparency</h4>
-            <p>In the West, the idea that government should be open to public scrutiny and susceptible to public
-              opinion
-              dates
-              back at least to the time of the Enlightenment, when many philosophes made an attack on absolutist
-              doctrine of
-              state secrecy, a core part of their intellectual project. The passage of formal legislative instruments
-              to
-              this
-              end can also be traced to this time with Sweden, for example, (which then included Finland as a
-              Swedish-governed
-              territory) enacting free press legislation as part of its constitution (Freedom of the Press Act, 1766).
-              This
-              approach, and that of the philosophes more broadly, is strongly related to recent historiography on the
-              eighteenth-century public sphere. <p>Influenced by Enlightenment thought, the revolutions in America
-                (1776) and France (1789), freedom of the press
-                enshrined provisions and requirements for public budgetary accounting and freedom of the press in
-                constitutional
-                articles. In the nineteenth century, attempts by Metternichean statesmen to row back on these measures
-                were
-                vigorously opposed by a number of eminent liberal politicians and writers, Bentham, Mill and Acton
-                prominent
-                among the latter.</p>
+        <h5>Background History</h5>
+        <p>In the West, the idea that government should be open to public scrutiny and susceptible to public
+          opinion
+          dates
+          back at least to the time of the Enlightenment, when many philosophes made an attack on absolutist
+          doctrine of
+          state secrecy, a core part of their intellectual project. The passage of formal legislative instruments
+          to
+          this
+          end can also be traced to this time with Sweden, for example, (which then included Finland as a
+          Swedish-governed
+          territory) enacting free press legislation as part of its constitution (Freedom of the Press Act, 1766).
 
-              <p>Open government is widely seen to be a key hallmark of contemporary democratic practice and is often
-                linked to
-                the passing of freedom of information legislation. Scandinavian countries claim to have adopted the
-                first
-                freedom of information legislation, dating the origins of its modern provisions to the eighteenth
-                century and
-                Finland continuing the presumption of openness after gaining independence in 1917, passing its Act on
-                Publicity
-                of Official Documents in 1951 (superseded by new legislation in 1999).</p>
+          <ul class="collapsible">
+            <li>
+              <div class="collapsible-header"><i class="material-icons">add</i>Read more..</div>
+              <div class="collapsible-body">
+                <p> This
+                  approach, and that of the philosophes more broadly, is strongly related to recent historiography
+                  on the
+                  eighteenth-century public sphere. <p>Influenced by Enlightenment thought, the revolutions in
+                    America
+                    (1776) and France (1789), freedom of the press
+                    enshrined provisions and requirements for public budgetary accounting and freedom of the press
+                    in
+                    constitutional
+                    articles. In the nineteenth century, attempts by Metternichean statesmen to row back on these
+                    measures
+                    were
+                    vigorously opposed by a number of eminent liberal politicians and writers, Bentham, Mill and
+                    Acton
+                    prominent
+                    among the latter.</p>
 
-              <p>The United States passed its Freedom of Information Act (FOIA) in 1966, FOIAs, Access to Information
-                Acts
-                (AIAs) or equivalent laws were passed in Denmark and Norway in 1970.</p>
-          </div>
-        </li>
-      </ul>
-  </section>
+                  <p>Open government is widely seen to be a key hallmark of contemporary democratic practice and is
+                    often
+                    linked to
+                    the passing of freedom of information legislation. Scandinavian countries claim to have adopted
+                    the
+                    first
+                    freedom of information legislation, dating the origins of its modern provisions to the
+                    eighteenth
+                    century and
+                    Finland continuing the presumption of openness after gaining independence in 1917, passing its
+                    Act on
+                    Publicity
+                    of Official Documents in 1951 (superseded by new legislation in 1999).</p>
+
+                  <p>The United States passed its Freedom of Information Act (FOIA) in 1966, FOIAs, Access to
+                    Information
+                    Acts
+                    (AIAs) or equivalent laws were passed in Denmark and Norway in 1970.</p>
+              </div>
+            </li>
+          </ul>
+      </div>
+    </section>
+  </main>
 
   <footer class="page-footer docs-footer grey">
     <div class="container">
       <div class="row" style='margin-bottom: 0;'>
         <div class="col s12 m10 offset-m1">
           <h5 class="white-text">Help Us Continue Our Task</h5>
-          <p class="grey-text text-lighten-4">Your contribution will make our work possible. GTIF is a non profit
+          <p class="grey-text text-lighten-4">Your contribution will make our work possible. GTIF is a non
+            profit
             organisation sustained by
             independent collaborators.</p>
-          <a href="#!" class="btn waves-effect waves-light indigo lighten-2">Support Us</a>
-        </div>
-
-        <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links</h5>
-          <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-          </ul>
+          <div class="button center" style="margin-bottom: 2rem;"> <a href="#!"
+              class="btn waves-effect waves-light indigo lighten-2">Support Us</a>
+          </div>
         </div>
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
-        © TGIF 2019. All rights reserved
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        <div class="row valign-wrapper">
+          <div class="col s6">
+            <p class="center-align">© TGIF 2019. All rights reserved</p>
+          </div>
+          <div class="col s6 center">
+            Find us
+            <div class="row" style="margin: 0.3rem;">
+              <a class="grey-text text-lighten-3" href="#!"><i class="fab fa-twitter" style="margin: 0 1rem;"></i></a>
+              <a class="grey-text text-lighten-3" href="#!" style="margin: 0 1rem;"><i class="fab fa-facebook"></i></a>
+              <a class="grey-text text-lighten-3" href="#!" style="margin: 0 1rem;"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </footer>
 
+  <script src="https://kit.fontawesome.com/8d4b0f1007.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="node_modules\materialize-css\dist\js\materialize.js"></script>
   <script src="js/main.js"></script>

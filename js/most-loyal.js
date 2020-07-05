@@ -1,79 +1,74 @@
-function fillMostLoyalTable() {
+function fillMostLoyalTable () {
+  var sortedMembersMost = members.slice()
+  sortedMembersMost.sort((a, b) => {
+    return b.votes_with_party_pct - a.votes_with_party_pct
+  })
 
-    var sortedMembersMost = members.slice();
-    sortedMembersMost.sort((a, b) => {
-        return b.votes_with_party_pct - a.votes_with_party_pct;
-    });
+  console.log(sortedMembersMost)
 
+  // CREATES FIRST 10%
+  var cutLength = Math.round(members.length * 0.1)
 
-    console.log(sortedMembersMost)
+  var splicedMembersMost = sortedMembersMost.splice(0, cutLength)
 
-    // CREATES FIRST 10% 
+  console.log(splicedMembersMost)
 
-    var cutLength = Math.round((members.length) * 0.1)
+  // ADDS DUPPLICATES
+  splicedMembersMost.forEach(member => {
+    if (
+      sortedMembersMost.votes_with_party_pct ===
+      splicedMembersMost[10].votes_with_party_pct
+    ) {
+      splicedMembers.push(member)
+    } else if (
+      sortedMembersMost.votes_with_party_pct ===
+      splicedMembersMost[10].votes_with_party_pct
+    ) {
+      splicedMembersMost.push(member)
+    }
+  })
 
-    var splicedMembersMost = sortedMembersMost.splice(0, cutLength)
+  console.log(splicedMembersMost)
 
-    console.log(splicedMembersMost)
+  // FILL TABLES
+  const tableMost = document.querySelector('#Most-Loyal')
 
-    // ADDS DUPPLICATES
+  splicedMembersMost.forEach(member => {
+    const tr = document.createElement('tr')
 
-    splicedMembersMost.forEach((member) => {
-        if (sortedMembersMost.votes_with_party_pct === splicedMembersMost[10].votes_with_party_pct) {
-            splicedMembers.push(member)
-        } else if (sortedMembersMost.votes_with_party_pct === splicedMembersMost[10].votes_with_party_pct) {
-            splicedMembersMost.push(member)
-        };
-    })
+    const td1 = document.createElement('td')
+    const td2 = document.createElement('td')
+    const td3 = document.createElement('td')
 
-    console.log(splicedMembersMost)
+    // Creates Full-Name Field
+    var firstName = member.first_name
+    var middleName = member.middle_name
+    var lastName = member.last_name
 
-    // FILL TABLES
+    var fullName
+    if (middleName === null) {
+      fullName = firstName + ' ' + lastName
+    } else {
+      fullName = firstName + ' ' + middleName + ' ' + lastName
+    }
 
-    const tableMost = document.querySelector('#Most-Loyal');
+    // Creates Link
+    var a = document.createElement('a')
+    a.href = member.url
 
-    splicedMembersMost.forEach((member) => {
+    // Creates data cells
+    a.innerHTML = fullName
+    td1.appendChild(a)
 
-        const tr = document.createElement("tr");
+    td2.innerHTML = member.total_votes
+    td3.innerHTML = member.votes_with_party_pct
 
-        const td1 = document.createElement("td");
-        const td2 = document.createElement("td");
-        const td3 = document.createElement("td");
+    // Appends cells
+    tr.appendChild(td1)
+    tr.appendChild(td2)
+    tr.appendChild(td3)
 
-
-        // Creates Full-Name Field
-        var firstName = member.first_name
-        var middleName = member.middle_name
-        var lastName = member.last_name
-
-        var fullName
-        if (middleName === null) {
-            fullName = firstName + " " + lastName
-        } else {
-            fullName = firstName + " " + middleName + " " + lastName
-        };
-
-
-        // Creates Link
-        var a = document.createElement('a');
-        a.href = member.url;
-
-
-        // Creates data cells 
-        a.innerHTML = fullName
-        td1.appendChild(a)
-
-        td2.innerHTML = member.total_votes
-        td3.innerHTML = member.votes_with_party_pct
-
-
-        // Appends cells
-        tr.appendChild(td1);
-        tr.appendChild(td2);
-        tr.appendChild(td3);
-
-        
-        // Appends rows
-        tableMost.appendChild(tr);
-    })
+    // Appends rows
+    tableMost.appendChild(tr)
+  })
 }

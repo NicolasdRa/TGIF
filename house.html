@@ -15,7 +15,8 @@
 
 </head>
 
-<!-- <header class="container header">
+<body>
+    <!-- <header class="container header">
     <div class="row header__content">
       <div class="col s6 header__content-left">
         <a href="#!" class="brand-logo right"><img src="./images/TGIF-logo.png" class="logo-image" alt="TGIF logo"
@@ -27,252 +28,259 @@
     </div>
   </header> -->
 
-<!-- Dropdown Structure -->
-<div class="row">
+    <main>
+        <!-- Dropdown Structures -->
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href="senate.html">Senate</a></li>
+            <li class="divider"></li>
+            <li><a href="house.html">House</a></li>
+        </ul>
 
-    <ul id="dropdown1" class="dropdown-content">
-        <li><a href="senate.html">Senate</a></li>
-        <li class="divider"></li>
-        <li><a href="house.html">House</a></li>
-    </ul>
+        <ul id="dropdown2" class="dropdown-content">
+            <li><a href="attendance_senate.html">Senate</a></li>
+            <li class="divider"></li>
+            <li><a href="attendance_house.html">House</a></li>
+        </ul>
 
-    <ul id="dropdown2" class="dropdown-content">
-        <li><a href="attendance_senate.html">Senate</a></li>
-        <li class="divider"></li>
-        <li><a href="attendance_house.html">House</a></li>
-    </ul>
+        <ul id="dropdown3" class="dropdown-content">
+            <li><a href="party-loyalty_senate.html">Senate</a></li>
+            <li class="divider"></li>
+            <li><a href="party-loyalty_house.html">House</a></li>
+        </ul>
 
-    <ul id="dropdown3" class="dropdown-content">
-        <li><a href="party-loyalty_senate.html">Senate</a></li>
-        <li class="divider"></li>
-        <li><a href="party-loyalty_house.html">House</a></li>
-    </ul>
+        <nav>
+            <div class="nav-wrapper indigo lighten-2">
+                <div class='container'>
+                    <a href="home.html" class='brand-logo'>TGIF</a>
+                    <a href="#!" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-    <nav class="nav-wrapper indigo lighten-2">
-        <div class='container'>
-            <a href="#" class='brand-logo'>TGIF</a>
-            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class='right hide-on-med-and-down'>
+                        <li><a href="home.html">Home</a></li>
 
-            <ul class='right hide-on-med-and-down'>
-                <li class="active"><a href="home.html">Home</a></li>
-
-                <!-- Dropdown Trigger -->
-                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Congress 113<i
-                            class="material-icons right">arrow_drop_down</i></a></li>
-                <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Attendance<i
-                            class="material-icons right">arrow_drop_down</i></a></li>
-                <li><a class="dropdown-trigger" href="#!" data-target="dropdown3">Party Loyalty<i
-                            class="material-icons right">arrow_drop_down</i></a></li>
-            </ul>
-    </nav>
-
-    <ul id="slide-out" class="sidenav">
-        <li>
-            <div class="user-view">
-                <div class="background fit">
-                    <img src="images/paper-stacking-working-document-sm.png">
-                </div>
-                <a href="#user"><img class="circle" src="images/TGIF-logo.png"></a>
-                <a href="#name"><span class="white-text name">Government Transparency in Fact</span></a>
-            </div>
-        </li>
-        <li><a href="#!"><i class="material-icons">mail_outline</i>info@tgif.com</a></li>
-        <!-- <li class="search">
-        <div class="search-wrapper">
-          <input id='search' placeholder='Search'>
-          <i class="material-icons">search</i>
-          <div class="search-results"></div>
-        </div>
-      </li> -->
-        <li>
-            <div class="divider"></div>
-        </li>
-        <li class='no-padding bold'>
-            <a href="home.html" class="waves-effect waves-indigo">Home</a>
-        </li>
-        <li>
-            <ul class="collapsible collapsible-accordion">
-                <li class="bold">
-                    <a class="collapsible-header waves-effect waves-indigo" tabindex='0'>Congress 113</a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li>
-                                <a href="senate.html">Senate</a>
-                            </li>
-                            <li>
-                                <a href="house.html">House</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="bold">
-                    <a class="collapsible-header waves-effect waves-indigo" tabindex='0'>Attendance</a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li>
-                                <a href="attendance_senate.html">Senate</a>
-                            </li>
-                            <li>
-                                <a href="attendance_house.html">House</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="bold">
-                    <a class="collapsible-header waves-effect waves-indigo" tabindex='0'>Party Loyalty</a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li>
-                                <a href="party-loyalty_senate.html">Senate</a>
-                            </li>
-                            <li>
-                                <a href="party-loyalty_house.html">House</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
-
-    </ul>
-
-</div>
-<!--Table container-->
-<section class="container">
-    <div class="row">
-        <div class="col-4">
-        </div>
-        <div class="col-8">
-            <h4 class="title__sub">Congressmen</h4>
-            <p>The major power of the House is to pass federal legislation that affects the entire country,
-                although
-                its
-                bills must also be passed by the Senate and further agreed to by the U.S. President before
-                becoming
-                law
-                (unless both the House and Senate re-pass the legislation with a two-thirds majority in each
-                chamber). The
-                House has some exclusive powers: the power to initiate revenue bills, to impeach officials
-                (impeached
-                officials are subsequently tried in the Senate), and to elect the U.S. President in case there
-                is no
-                majority in the Electoral College.</p>
-            <p>Each U.S. state is represented in the House in proportion to its population as measured in the
-                census, but
-                every state is entitled to at least one representative. </p>
-        </div>
-    </div>
-    <div class="row filters">
-        <div class="col-6 filters__parties">
-            <div class="filters__parties-label">
-                <label>Filter by Party</label>
-            </div>
-            <div class="filters__parties-parties">
-                <form action="#" class="checkboxes" id="checkbox-filter">
-                    <div class="col s4">
-                        <p>
-                            <label>
-                                <input checked type="checkbox" value="D" class="filled-in" id="cbox-Dem" />
-                                <span>Democrats</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col s4">
-                        <p>
-                            <label>
-                                <input checked type="checkbox" value="R" class="filled-in" id="cbox-Rep" />
-                                <span>Republicans</span>
-                            </label>
-                        </p>
-                    </div>
-                    <div class="col s4">
-                        <p>
-                            <label>
-                                <input checked type="checkbox" value="I" class="filled-in" id="cbox-Ind" />
-                                <span>Independents</span>
-                            </label>
-                        </p>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <div class="col-4 filters__states">
-            <div class="filters__states-label">
-                <label>Filter by State</label>
-            </div>
-            <div class="filters__states-states">
-                <select class="browser-default">
-                    <option value="" disabled selected>Choose State</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4">
-        </div>
-        <div class="col-8">
-            <table class="striped" id="house-data">
-                <thead>
-                    <tr>
-                        <th>Full Name</th>
-                        <th>Party</th>
-                        <th>State</th>
-                        <th>Seniority</th>
-                        <th>% votes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-            <div class="row preloader-wrapper big active" id="loader">
-                <div class="spinner-layer spinner-blue-only">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="gap-patch">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
+                        <!-- Dropdown Trigger -->
+                        <li class="active"><a class="dropdown-trigger" href="#!" data-target="dropdown1">Congress 113<i
+                                    class="material-icons right">arrow_drop_down</i></a></li>
+                        <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Attendance<i
+                                    class="material-icons right">arrow_drop_down</i></a></li>
+                        <li><a class="dropdown-trigger" href="#!" data-target="dropdown3">Party Loyalty<i
+                                    class="material-icons right">arrow_drop_down</i></a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </nav>
 
-<footer class="page-footer docs-footer grey">
-    <div class="container">
-        <div class="row" style='margin-bottom: 0;'>
-            <div class="col s12 m10 offset-m1">
-                <h5 class="white-text">Help Us Continue Our Task</h5>
-                <p class="grey-text text-lighten-4">Your contribution will make our work possible. GTIF is a non profit
-                    organisation sustained by
-                    independent collaborators.</p>
-                <a href="#!" class="btn waves-effect waves-light indigo lighten-2">Support Us</a>
-            </div>
-
-            <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+        <!-- Slide out Nav - phone & Ipads -->
+        <ul id="slide-out" class="sidenav">
+            <li>
+                <div class="user-view">
+                    <div class="background">
+                        <img src="images/paper-stacking-working-document-sm.png">
+                    </div>
+                    <a href="#user"><img class="circle" src="images/TGIF-logo.png"></a>
+                    <a href="#name"><span class="white-text name">Government Transparency in Fact</span></a>
+                </div>
+            </li>
+            <li><a href="#!"><i class="material-icons">mail_outline</i>info@tgif.com</a></li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <li class="bold">
+                        <a href="home.html" class="collapsible-header waves-effect waves-indigo" tabindex='0'>Home</a>
+                    </li>
+                    <li class="bold">
+                        <a class="collapsible-header waves-effect waves-indigo" tabindex='1'>Congress 113</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="senate.html">Senate</a>
+                                </li>
+                                <li>
+                                    <a href="house.html">House</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold">
+                        <a class="collapsible-header waves-effect waves-indigo" tabindex='2'>Attendance</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="attendance_senate.html">Senate</a>
+                                </li>
+                                <li>
+                                    <a href="attendance_house.html">House</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold">
+                        <a class="collapsible-header waves-effect waves-indigo" tabindex='3'>Party Loyalty</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="party-loyalty_senate.html">Senate</a>
+                                </li>
+                                <li>
+                                    <a href="party-loyalty_house.html">House</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
+            </li>
+        </ul>
+        </div>
+
+        <!--Table container-->
+        <section class="container">
+            <div class="row">
+                <div class="col-4">
+                </div>
+                <div class="col-8">
+                    <h4 class="title__sub">Congressmen</h4>
+                    <p>The major power of the House is to pass federal legislation that affects the entire country,
+                        although
+                        its
+                        bills must also be passed by the Senate and further agreed to by the U.S. President before
+                        becoming
+                        law
+                        (unless both the House and Senate re-pass the legislation with a two-thirds majority in each
+                        chamber). The
+                        House has some exclusive powers: the power to initiate revenue bills, to impeach officials
+                        (impeached
+                        officials are subsequently tried in the Senate), and to elect the U.S. President in case there
+                        is no
+                        majority in the Electoral College.</p>
+                    <p>Each U.S. state is represented in the House in proportion to its population as measured in the
+                        census, but
+                        every state is entitled to at least one representative. </p>
+                </div>
+            </div>
+            <div class="row filters">
+                <div class="col-6 filters__parties">
+                    <div class="filters__parties-label">
+                        <label>Filter by Party</label>
+                    </div>
+                    <div class="filters__parties-parties">
+                        <form action="#" class="checkboxes" id="checkbox-filter">
+                            <div class="col s4">
+                                <p>
+                                    <label>
+                                        <input checked type="checkbox" value="D" class="filled-in" id="cbox-Dem" />
+                                        <span>Democrats</span>
+                                    </label>
+                                </p>
+                            </div>
+                            <div class="col s4">
+                                <p>
+                                    <label>
+                                        <input checked type="checkbox" value="R" class="filled-in" id="cbox-Rep" />
+                                        <span>Republicans</span>
+                                    </label>
+                                </p>
+                            </div>
+                            <div class="col s4">
+                                <p>
+                                    <label>
+                                        <input checked type="checkbox" value="I" class="filled-in" id="cbox-Ind" />
+                                        <span>Independents</span>
+                                    </label>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-4 filters__states">
+                    <div class="filters__states-label">
+                        <label>Filter by State</label>
+                    </div>
+                    <div class="filters__states-states">
+                        <select class="browser-default">
+                            <option value="" disabled selected>Choose State</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                </div>
+                <div class="col-8">
+                    <table class="striped" id="house-data">
+                        <thead>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Party</th>
+                                <th>State</th>
+                                <th>Seniority</th>
+                                <th>% votes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div class="row preloader-wrapper big active" id="loader">
+                        <div class="spinner-layer spinner-blue-only">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer docs-footer grey">
+        <div class="container">
+            <div class="row" style='margin-bottom: 0;'>
+                <div class="col s12 m10 offset-m1">
+                    <h5 class="white-text">Help Us Continue Our Task</h5>
+                    <p class="grey-text text-lighten-4">Your contribution will make our work possible. GTIF is a non
+                        profit
+                        organisation sustained by
+                        independent collaborators.</p>
+                    <div class="button center" style="margin-bottom: 2rem;"> <a href="#!"
+                            class="btn waves-effect waves-light indigo lighten-2">Support Us</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="footer-copyright">
-        <div class="container">
-            © TGIF 2019. All rights reserved
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row valign-wrapper">
+                    <div class="col s6">
+                        <p class="center-align">© TGIF 2019. All rights reserved</p>
+                    </div>
+                    <div class="col s6 center">
+                        Find us
+                        <div class="row" style="margin: 0.3rem;">
+                            <a class="grey-text text-lighten-3" href="#!"><i class="fab fa-twitter"
+                                    style="margin: 0 1rem;"></i></a>
+                            <a class="grey-text text-lighten-3" href="#!" style="margin: 0 1rem;"><i
+                                    class="fab fa-facebook"></i></a>
+                            <a class="grey-text text-lighten-3" href="#!" style="margin: 0 1rem;"><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="node_modules\materialize-css\dist\js\materialize.js"></script>
-<script src="js/main.js"></script>
-<script src="js/functions.js"></script>
+    <script src="https://kit.fontawesome.com/8d4b0f1007.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="node_modules\materialize-css\dist\js\materialize.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/functions.js"></script>
 
 </body>
 
