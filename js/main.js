@@ -47,8 +47,12 @@ if (
       membersGlobal = members
       functionController(members)
 
-      document.querySelector('#loader').style.display = 'none'
-      // $('#loader').addClass("hide-loader");
+      // hides preloaders on fetched
+      function hidePreloaders () {
+        let preloaders = document.querySelectorAll('.loader')
+        preloaders.forEach(preloader => preloader.classList.add('hide'))
+      }
+      hidePreloaders()
     })
     .catch(function (error) {
       console.log(error)
