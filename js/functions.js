@@ -4,27 +4,24 @@ const ddmenu = document.querySelector('.browser-default')
 
 // CHECKBOX FILTER (by party)
 // Returns array of Values from Checked Checkboxes
-function checkBoxSelected () {
-  var array = []
-  var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
-
-  for (var i = 0; i < checkboxes.length; i++) {
-    array.push(checkboxes[i].value)
-  }
-  return array
+const checkBoxSelected = () => {
+  const values = []
+  const checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+  checkboxes.forEach(checkbox => values.push(checkbox.value))
+  return values
 }
 
 // DROPDOWN FILTER (by State)
 // Runs Dropdown Filter
-function runDropdownFilter (members, states) {
+const runDropdownFilter = (members, states) => {
   // Creates array of States
-  var states = []
+  states = []
   members.forEach(state => {
     states.push(state.state)
   })
 
   // Removes duplicates
-  states = states.filter(function (state, index) {
+  states = states.filter((state, index) => {
     return states.indexOf(state) === index
   })
 
@@ -35,11 +32,11 @@ function runDropdownFilter (members, states) {
   states.splice(0, 0, 'ALL STATES')
 
   // Fills OPTIONS with State Names
-  states.forEach(i => {
-    var option = document.createElement('option')
+  states.forEach(state => {
+    const option = document.createElement('option')
 
     // Fills cell Data
-    option.innerHTML = [i]
+    option.innerHTML = [state]
 
     // Appends cells
     ddmenu.appendChild(option)
@@ -47,38 +44,44 @@ function runDropdownFilter (members, states) {
 }
 
 //Gets selected text from options
-function getSelectedText () {
+const getSelectedText = () => {
   return ddmenu.options[ddmenu.selectedIndex].text
 }
 
 // Creates Main Tables content
-function fillMainTable () {
-  var members = membersGlobal
-  var selectedText = getSelectedText()
-  var checkBoxSelection = checkBoxSelected()
+const fillMainTable = () => {
+  const members = membersGlobal
+  const selectedText = getSelectedText()
+  const checkBoxSelection = checkBoxSelected()
 
   // Clears Tables before printing members
   tableBody.innerHTML = ''
 
   // Member controller
   members.forEach(member => {
-    // Checks if Party Name is included in the array before creating element
+    // Checks if Party is included in the array before creating element
     if (
-      (selectedText === 'ALL STATES' || selectedText === 'Choose State') &&
+      ((member !== undefined &&
+        member !== null &&
+        selectedText === 'ALL STATES') ||
+        selectedText === 'Choose State') &&
       checkBoxSelection.includes(member.party)
     ) {
       insertMembers(member)
     } else if (
+      member !== undefined &&
+      member !== null &&
       checkBoxSelection.includes(member.party) &&
       selectedText === member.state
     ) {
       insertMembers(member)
     }
   })
+  console.log(members)
 }
 
 // General Member Injector Function
-function insertMembers (member) {
+const insertMembers = member => {
   const tr = document.createElement('tr')
   const td1 = document.createElement('td')
   const td2 = document.createElement('td')
@@ -87,11 +90,11 @@ function insertMembers (member) {
   const td5 = document.createElement('td')
 
   // Creates Full-Name Field
-  var firstName = member.first_name
-  var middleName = member.middle_name
-  var lastName = member.last_name
+  const firstName = member.first_name
+  const middleName = member.middle_name
+  const lastName = member.last_name
 
-  var fullName
+  let fullName
   if (middleName === null) {
     fullName = firstName + ' ' + lastName
   } else {
@@ -99,7 +102,7 @@ function insertMembers (member) {
   }
 
   // Creates Link
-  var a = document.createElement('a')
+  const a = document.createElement('a')
   a.href = member.url
 
   // Creates data cells
@@ -122,9 +125,9 @@ function insertMembers (member) {
 }
 
 // EVENT LISTENERS
-function runEventListeners () {
+const runEventListeners = () => {
   // Checkboxes
-  var checkBoxes = document.getElementById('checkbox-filter')
+  const checkBoxes = document.getElementById('checkbox-filter')
   checkBoxes.addEventListener('change', fillMainTable)
 
   // Dropdown Menu
@@ -132,13 +135,13 @@ function runEventListeners () {
 }
 
 // RUNS ALL STATISTICS / GLobal
-function runStats (members) {
+const runStats = members => {
   // CREATES  new array for each party
-  let demArray = []
-  let repArray = []
-  let indArray = []
+  const demArray = []
+  const repArray = []
+  const indArray = []
 
-  function createPartyArrays (mem) {
+  const createPartyArrays = mem => {
     if (mem.party === 'D') {
       demArray.push(mem)
     } else if (mem.party === 'R') {
@@ -156,53 +159,61 @@ function runStats (members) {
   getAverages(demArray, repArray, indArray)
 }
 
-function getAverages (demArray, repArray, indArray) {
+const getAverages = (demArray, repArray, indArray) => {
   // PARTY LOYALTY calculations / Global
-  let plWithDem = 0
-  let plWithRep = 0
-  let plAgainstDem = 0
-  let plAgainstRep = 0
 
-  demArray.forEach(member => {
-    plWithDem += member.votes_with_party_pct
-    plAgainstDem += member.votes_against_party_pct
-  })
+  // filters missing values in array
+  const cleanDemArray = demArray.filter(
+    member =>
+      member.missed_votes_pct != null || member.missed_votes_pct != undefined
+  )
 
-  repArray.forEach(member => {
-    plWithRep += member.votes_with_party_pct
-    plAgainstRep += member.votes_against_party_pct
-  })
+  // Adds Values
+  const plWithDem =
+    cleanDemArray.reduce(
+      (accumulator, member) => accumulator + member.votes_with_party_pct,
+      0
+    ) / cleanDemArray.length
+
+  // filters missing values in array
+  const cleanRepArray = repArray.filter(
+    member =>
+      member.missed_votes_pct != null || member.missed_votes_pct != undefined
+  )
+
+  // Adds Values
+  const plWithRep =
+    cleanRepArray.reduce(
+      (accumulator, member) => accumulator + member.votes_with_party_pct,
+      0
+    ) / cleanRepArray.length
 
   // Fills empty object initialised globally
   statistics.Democrats = demArray.length
   statistics.Republicans = repArray.length
   statistics.Independents = indArray.length
-  statistics.plDemocrats = plWithDem / demArray.length
-  ;(statistics.plRepublicans = plWithRep / repArray.length),
-    (statistics.pdisDemocrats = plAgainstDem / demArray.length)
-  statistics.pdisRepublicans = plAgainstRep / demArray.length
+  statistics.plDemocrats = plWithDem
+  statistics.plRepublicans = plWithRep
 }
 
 // Statistics OBJECT
-var statistics = {
+const statistics = {
   Democrats: 0,
   Republicans: 0,
   Independents: 0,
   plDemocrats: 0,
   plRepublicans: 0,
-  pDisDemocrats: 0,
-  pDisRepublicans: 0,
   mostEngaged: 'null',
   leastEngaged: 'null'
 }
 
 // FILLS AT A GLANCE TABLES
-function fillaAtGlanceTable () {
+const fillaAtGlanceTable = () => {
   // Selects Table Bodies
   const tableBodyatGlance = document.querySelector('#At_a_Glance')
 
   // Creates array with Party Data for At a Glance Tables
-  let parties = [
+  const parties = [
     {
       name: 'Democrats',
       noRep: statistics.Democrats,
@@ -251,41 +262,39 @@ function fillaAtGlanceTable () {
   })
 }
 
-function fillLeastEngagedTable (members) {
-  var sortedMembers = members.slice()
-  sortedMembers.sort((a, b) => {
-    return b.missed_votes_pct - a.missed_votes_pct
-  })
+const fillLeastEngagedTable = members => {
+  const sortedMembers = members.sort((a, b) => b.missed_votes - a.missed_votes)
 
   // CREATES FIRST 10%
+  const cutLength = Math.round(sortedMembers.length * 0.1)
+  const tenPercent = sortedMembers.slice(0, cutLength)
+  const lastMember = tenPercent[tenPercent.length - 1]
 
-  var cutLength = Math.round(members.length * 0.1)
-  var splicedMembers = sortedMembers.splice(0, cutLength)
-  var lastMember10prc = splicedMembers[splicedMembers.length - 1]
-
-  // ADDS DUPPLICATES
+  // ADDS DUPLICATES
   sortedMembers.forEach(member => {
-    if (member.missed_votes_pct === lastMember10prc.missed_votes_pct) {
-      if (lastMember10prc != member) splicedMembers.push(member)
+    if (
+      member.missed_votes === lastMember.missed_votes &&
+      member !== lastMember
+    ) {
+      tenPercent.push(member)
     }
   })
 
   // FILL TABLES
   const tableLeast = document.querySelector('#Least-Engaged')
 
-  splicedMembers.forEach(member => {
+  tenPercent.forEach(member => {
     const tr = document.createElement('tr')
-
     const td1 = document.createElement('td')
     const td2 = document.createElement('td')
     const td3 = document.createElement('td')
 
     // Creates Full-Name Field
-    var firstName = member.first_name
-    var middleName = member.middle_name
-    var lastName = member.last_name
+    const firstName = member.first_name
+    const middleName = member.middle_name
+    const lastName = member.last_name
 
-    var fullName
+    let fullName
     if (middleName === null) {
       fullName = firstName + ' ' + lastName
     } else {
@@ -293,7 +302,7 @@ function fillLeastEngagedTable (members) {
     }
 
     // Creates Link
-    var a = document.createElement('a')
+    const a = document.createElement('a')
     a.href = member.url
 
     // Creates data cells
@@ -313,41 +322,39 @@ function fillLeastEngagedTable (members) {
   })
 }
 
-function fillMostEngagedTable (members) {
-  var sortedMembersMost = members.slice()
-  sortedMembersMost.sort((a, b) => {
-    return a.missed_votes_pct - b.missed_votes_pct
-  })
+const fillMostEngagedTable = members => {
+  const sortedMembers = members.sort((a, b) => a.missed_votes - b.missed_votes)
 
   // CREATES FIRST 10%
-
-  var cutLength = Math.round(members.length * 0.1)
-  var splicedMembersMost = sortedMembersMost.splice(0, cutLength)
-  var lastMember10prc = splicedMembersMost[splicedMembersMost.length - 1]
+  const cutLength = Math.round(sortedMembers.length * 0.1)
+  const tenPercent = sortedMembers.slice(0, cutLength)
+  const lastMember = tenPercent[tenPercent.length - 1]
 
   // ADDS DUPPLICATES
-  sortedMembersMost.forEach(member => {
-    if (member.missed_votes_pct === lastMember10prc.missed_votes_pct) {
-      if (lastMember10prc != member) splicedMembersMost.push(member)
+  sortedMembers.forEach(member => {
+    if (
+      member.missed_votes === lastMember.missed_votes &&
+      member !== lastMember
+    ) {
+      tenPercent.push(member)
     }
   })
 
   // FILL TABLES
   const tableMost = document.querySelector('#Most-Engaged')
 
-  splicedMembersMost.forEach(member => {
+  tenPercent.forEach(member => {
     const tr = document.createElement('tr')
-
     const td1 = document.createElement('td')
     const td2 = document.createElement('td')
     const td3 = document.createElement('td')
 
     // Creates Full-Name Field
-    var firstName = member.first_name
-    var middleName = member.middle_name
-    var lastName = member.last_name
+    const firstName = member.first_name
+    const middleName = member.middle_name
+    const lastName = member.last_name
 
-    var fullName
+    let fullName
     if (middleName === null) {
       fullName = firstName + ' ' + lastName
     } else {
@@ -355,13 +362,12 @@ function fillMostEngagedTable (members) {
     }
 
     // Creates Link
-    var a = document.createElement('a')
+    const a = document.createElement('a')
     a.href = member.url
 
     // Creates data cells
     a.innerHTML = fullName
     td1.appendChild(a)
-
     td2.innerHTML = member.missed_votes
     td3.innerHTML = member.missed_votes_pct
 
@@ -375,34 +381,30 @@ function fillMostEngagedTable (members) {
   })
 }
 
-function fillLeastLoyalTable (members) {
-  var sortedMembers = members.slice()
-  sortedMembers.sort((a, b) => {
-    return b.votes_against_party_pct - a.votes_against_party_pct
-  })
+const fillLeastLoyalTable = members => {
+  const sortedMembers = members.sort(
+    (a, b) => b.votes_against_party_pct - a.votes_against_party_pct
+  )
 
   // CREATES FIRST 10%
+  const cutLength = Math.round(sortedMembers.length * 0.1)
+  const tenPercent = sortedMembers.slice(0, cutLength)
+  const lastMember = tenPercent[tenPercent.length - 1]
 
-  var cutLength = Math.round(members.length * 0.1)
-  var splicedMembers = sortedMembers.splice(0, cutLength)
-  var lastMember10prc = splicedMembers[splicedMembers.length - 1]
-
-  // ADDS DUPPLICATES
-
+  // ADDS DUPLICATES
   sortedMembers.forEach(member => {
     if (
-      member.votes_against_party_pct === lastMember10prc.votes_against_party_pct
+      member.votes_against_party_pct === lastMember.votes_against_party_pct &&
+      member !== lastMember
     ) {
-      splicedMembers.push(member)
-      if (lastMember10prc != member) splicedMembers.push(member)
+      tenPercent.push(member)
     }
   })
 
   // FILL TABLES
-
   const tableLeast = document.querySelector('#Least-Loyal')
 
-  splicedMembers.forEach(member => {
+  tenPercent.forEach(member => {
     const tr = document.createElement('tr')
 
     const td1 = document.createElement('td')
@@ -442,40 +444,41 @@ function fillLeastLoyalTable (members) {
   })
 }
 
-function fillMostLoyalTable (members) {
-  var sortedMembersMost = members.slice()
-  sortedMembersMost.sort((a, b) => {
-    return b.votes_with_party_pct - a.votes_with_party_pct
-  })
+const fillMostLoyalTable = members => {
+  const sortedMembers = members.sort(
+    (a, b) => b.votes_with_party_pct - a.votes_with_party_pct
+  )
 
   // CREATES FIRST 10%
-  var cutLength = Math.round(members.length * 0.1)
-  var splicedMembersMost = sortedMembersMost.splice(0, cutLength)
-  var lastMember10prc = splicedMembersMost[splicedMembersMost.length - 1]
+  const cutLength = Math.round(sortedMembers.length * 0.1)
+  const tenPercent = sortedMembers.slice(0, cutLength)
+  const lastMember = tenPercent[tenPercent.length - 1]
 
   // ADDS DUPPLICATES
-  sortedMembersMost.forEach(member => {
-    if (member.votes_with_party_pct === lastMember10prc.votes_with_party_pct) {
-      splicedMembersMost.push(member)
-      if (lastMember10prc != member) splicedMembersMost.push(member)
+  sortedMembers.forEach(member => {
+    if (
+      member.votes_with_party_pct === lastMember.votes_with_party_pct &&
+      member !== lastMember
+    ) {
+      tenPercent.push(member)
     }
   })
 
   // FILL TABLES
   const tableMost = document.querySelector('#Most-Loyal')
 
-  splicedMembersMost.forEach(member => {
+  tenPercent.forEach(member => {
     const tr = document.createElement('tr')
     const td1 = document.createElement('td')
     const td2 = document.createElement('td')
     const td3 = document.createElement('td')
 
     // Creates Full-Name Field
-    var firstName = member.first_name
-    var middleName = member.middle_name
-    var lastName = member.last_name
+    const firstName = member.first_name
+    const middleName = member.middle_name
+    const lastName = member.last_name
 
-    var fullName
+    let fullName
     if (middleName === null) {
       fullName = firstName + ' ' + lastName
     } else {
@@ -483,7 +486,7 @@ function fillMostLoyalTable (members) {
     }
 
     // Creates Link
-    var a = document.createElement('a')
+    const a = document.createElement('a')
     a.href = member.url
 
     // Creates data cells

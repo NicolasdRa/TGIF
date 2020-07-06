@@ -1,4 +1,4 @@
-// Necessary for Materialize drop down menu, accordion, checkboxes
+// Necessary for Materialize components
 $('.dropdown-trigger').dropdown()
 $('.collapsible').collapsible()
 $('.materialboxed').materialbox()
