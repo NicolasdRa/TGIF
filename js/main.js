@@ -1,4 +1,4 @@
-// Necessary for Materialize components
+// JQuery necessary for Materialize components
 $('.dropdown-trigger').dropdown()
 $('.collapsible').collapsible()
 $('.materialboxed').materialbox()
@@ -39,34 +39,33 @@ if (
       'X-API-Key': 'zgVuv018iIYLQCaUljwf3zgKx6h7cd2MlsT1pHsT'
     }
   })
-    .then(function (response) {
+    .then(response => {
       return response.json()
     })
-    .then(function (data) {
-      var members = data.results[0].members
+    .then(data => {
+      let members = data.results[0].members
       membersGlobal = members
       functionController(members)
 
       // hides preloaders on fetched
-      function hidePreloaders () {
+      const hidePreloaders = () => {
         let preloaders = document.querySelectorAll('.loader')
         preloaders.forEach(preloader => preloader.classList.add('hide'))
       }
       hidePreloaders()
     })
-    .catch(function (error) {
+    .catch(error => {
       console.log(error)
     })
 }
 
-function functionController (members) {
+const functionController = members => {
   if (title === 'Senate Members' || title === 'House Members') {
     getSelectedText()
     checkBoxSelected()
-    runDropdownFilter(members)
+    dropdownFilter(members)
     fillMainTable(members)
     runEventListeners(members)
-    insertMembers(members)
   } else if (title === 'Senate Attendance' || title === 'House Attendance') {
     runStats(members)
     fillaAtGlanceTable()
