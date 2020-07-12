@@ -59,7 +59,6 @@ const getAverages = (demArray, repArray, indArray) => {
 // FILTERS
 
 //Variables Checkbox / Dropdown / eventListner
-// const tBodyMain = document.querySelector('#main-table')
 const ddmenu = document.querySelector('.browser-default')
 
 // Checkbox filter (by Party) - Returns array of Checked Boxes
@@ -249,7 +248,7 @@ const selectMembers = (table, members) => {
 }
 
 // ----------------------------------------------------------------------- //
-// TABLE GENERATOR
+// TABLE GENERATORS
 
 // Main Tables
 const generateTable = (table, data) => {
@@ -283,24 +282,12 @@ const generateTable = (table, data) => {
       cell3.innerHTML = data.missed_votes_pct
       break
 
-    // case 'most-engaged':
-    //   cell1.appendChild(a)
-    //   cell2.innerHTML = data.missed_votes
-    //   cell3.innerHTML = data.missed_votes_pct
-    //   break
-
     case 'least-loyal':
     case 'most-loyal':
       cell1.appendChild(a)
       cell2.innerHTML = data.total_votes
       cell3.innerHTML = data.votes_with_party_pct
       break
-
-    // case 'most-loyal':
-    //   cell1.appendChild(a)
-    //   cell2.innerHTML = data.total_votes
-    //   cell3.innerHTML = data.votes_with_party_pct
-    //   break
   }
 }
 
