@@ -274,18 +274,33 @@ const generateTable = (table, data) => {
       cell3.innerHTML = data.state
       cell4.innerHTML = data.seniority
       cell5.innerHTML = data.votes_with_party_pct
+      break
 
     case 'least-engaged':
     case 'most-engaged':
       cell1.appendChild(a)
       cell2.innerHTML = data.missed_votes
       cell3.innerHTML = data.missed_votes_pct
+      break
+
+    // case 'most-engaged':
+    //   cell1.appendChild(a)
+    //   cell2.innerHTML = data.missed_votes
+    //   cell3.innerHTML = data.missed_votes_pct
+    //   break
 
     case 'least-loyal':
     case 'most-loyal':
       cell1.appendChild(a)
       cell2.innerHTML = data.total_votes
       cell3.innerHTML = data.votes_with_party_pct
+      break
+
+    // case 'most-loyal':
+    //   cell1.appendChild(a)
+    //   cell2.innerHTML = data.total_votes
+    //   cell3.innerHTML = data.votes_with_party_pct
+    //   break
   }
 }
 
