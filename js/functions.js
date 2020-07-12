@@ -118,7 +118,7 @@ const fillMainTable = () => {
   const checkBoxSelection = checkBoxSelected()
 
   // Clears Tables before printing members
-  tBodyMain.innerHTML = ''
+  table.innerHTML = ''
 
   // Member controller
   members.forEach(member => {
